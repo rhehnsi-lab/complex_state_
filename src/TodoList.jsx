@@ -1,24 +1,36 @@
+import { useState } from 'react'
+import TodoItem from './TodoItem'
+import TodoForm from './TodoForm'
 
-import React from "react";
-export function TodoList(){
+function TodoList() {
     const [todos, setTodos] = useState([
         { id: 1, title: 'ללמוד ריאקט', isDone: true },
         { id: 2, title: 'לעשות שיעורי בית', isDone: false },
         { id: 3, title: 'לקנות חלב', isDone: false },
     ])
-    function addTodo(title){
-        const newTodo={id:Date.now(),title,isDone:false}
-        setTodos([...todos,newTodo])
+
+    function addTodo(title) {
+        const newTodo = { id: Date.now(), title, isDone: false }
+        setTodos([...todos, newTodo])
     }
-    function markDone(){
-        setTodos(todos.map((todo)=>todo.id===id?{...todo,isDone:true}:todo))
+
+    function markDone(id) {
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, isDone: true } : todo
+            )
+        )
     }
-    return
-    (
+
+    return (
         <div>
-            <h1>my list todo</h1>
-            
+            <h1>רשימת משימות</h1>
+            <TodoForm onAdd={addTodo} />
+            {todos.map((todo) => (
+                <TodoItem key={todo.id} todo={todo} onDone={markDone} />
+            ))}
         </div>
     )
-
 }
+
+export default TodoList
