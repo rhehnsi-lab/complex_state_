@@ -1,12 +1,16 @@
 function getColor(isDone){
     return isDone ? 'lightpink' :'lightgreen'
 }
-export default function TodoItem({todo,onDone}){
+ function TodoItem({todo,onDone,deleteT}){
     const {id,title,isDone}=todo
 return (
 <div style={{background:getColor(isDone)}}>
 {title}
-{!isDone&&<button onClick={()=>onDone(id)}></button>}
+
+{!isDone&&<button onClick={()=>onDone(id)} >בוצע  </button>}
+        {isDone && <button onClick={() => deleteT(id)}>מחק ❌</button>}
+
 </ div>
 )
 }
+export default TodoItem

@@ -16,10 +16,12 @@ function TodoList() {
 
     function markDone(id) {
         setTodos(
-            todos.map((todo) =>
-                todo.id === id ? { ...todo, isDone: true } : todo
+            todos.map((todo) =>todo.id === id ? { ...todo, isDone: true } : todo
             )
         )
+    }
+    function deleteTodo(id){
+        setTodos(todos.filter((todo)=>todo.id!==id))
     }
 
     return (
@@ -27,7 +29,7 @@ function TodoList() {
             <h1>רשימת משימות</h1>
             <TodoForm onAdd={addTodo} />
             {todos.map((todo) => (
-                <TodoItem key={todo.id} todo={todo} onDone={markDone} />
+                <TodoItem key={todo.id} todo={todo} onDone={markDone} deleteT={deleteTodo}/>
             ))}
         </div>
     )

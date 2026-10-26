@@ -15,7 +15,7 @@ return (
         <input value={title}
         onChange={(e)=>setTitle(e.target.value)}
          />
-         <button type="submit">לאשר</button>
+         <button type="submit">Add</button>
     </form>)
 }
 export default  TodoForm 
