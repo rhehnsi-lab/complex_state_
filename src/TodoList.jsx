@@ -6,5 +6,9 @@ export function TodoList(){
         { id: 2, title: 'לעשות שיעורי בית', isDone: false },
         { id: 3, title: 'לקנות חלב', isDone: false },
     ])
+    function addTodo(title){
+        const newTodo={id:Date.now(),title,isDone:false}
+        setTodos([...todos,newTodo])
+    }
 
 }
