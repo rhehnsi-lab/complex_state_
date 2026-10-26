@@ -9,8 +9,7 @@ return (
 
 {!isDone&&<button onClick={()=>onDone(id)} >בוצע  </button>}
         {isDone && <button onClick={() => deleteT(id)}>מחק ❌</button>}
-        {<button onClick={() => editTodo(id)}>ערוך 📝</button>}
-
+      
 </ div>
 )
 }

@@ -8,6 +8,7 @@ function TodoList() {
         { id: 2, title: 'לעשות שיעורי בית', isDone: false },
         { id: 3, title: 'לקנות חלב', isDone: false },
     ])
+   // const [editingTodo, setEditingTodo] = useState(null)
 
     function addTodo(title) {
         const newTodo = { id: Date.now(), title, isDone: false }
@@ -23,19 +24,13 @@ function TodoList() {
     function deleteTodo(id){
         setTodos(todos.filter((todo)=>todo.id!==id))
     }
-    function editTodo(id){
-     const todoEdit=todos.find(todo=>todo.id===id)
-     if(todoEdit)
-        setEditingTodo(todoEdit)
-        };
-    }
-
+   
     return (
         <div>
             <h1>רשימת משימות</h1>
             <TodoForm onAdd={addTodo} />
             {todos.map((todo) => (
-                <TodoItem key={todo.id} todo={todo} onDone={markDone} deleteT={deleteTodo} editTodo={editTodo}/>
+                <TodoItem key={todo.id} todo={todo} onDone={markDone} deleteT={deleteTodo} />
             ))}
         </div>
     )
