@@ -10,5 +10,8 @@ export function TodoList(){
         const newTodo={id:Date.now(),title,isDone:false}
         setTodos([...todos,newTodo])
     }
+    function markDone(){
+        setTodos(todos.map((todo)=>todo.id===id?{...todo,isDone:true}:todo))
+    }
 
 }
